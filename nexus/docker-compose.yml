@@ -1,0 +1,18 @@
+version: '3'
+
+#kuzmin@gitlab:/media/kuzmin/storage3$ sudo mkdir nexus-data && sudo chown -R 200 nexus-data
+
+#Before launch need to change dir owner to 200 and change group to kuzmin
+
+services:
+  nexus:
+    image: sonatype/nexus3
+    restart: always
+    container_name: nexus
+    #command: bash -c "chown -R 200:200 /nexus-data"
+    #command: "sh", "-c", "chown -R 200:200 /nexus-data"
+    ports:
+      - "8081:8081"
+    volumes:
+      - /mnt/447fd10c-6bd4-408e-8017-081947b7169e/nexus-data:/nexus-data
+     # - /home/kuzmin/Документы/nexus-volume:/nexus-data
